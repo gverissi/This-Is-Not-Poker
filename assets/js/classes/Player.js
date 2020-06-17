@@ -4,6 +4,7 @@ class Player {
 	constructor(cards) {
 		this.valueOcc = {}
 		this.typeOcc = {}
+		this.scoreStraight = []
 		this.cards = cards
 		this.valueOccurences()
 		this.typeOccurences()
@@ -59,25 +60,31 @@ class Player {
 
 	hasAStraight() {
 		let combo = new Combo()
-		let orderedCards = combo.orderCards(this.cards).reverse()
+		// let orderedCards = combo.orderCards(this.cards).reverse()
+		let orderedCards = combo.orderCards(this.cards)
 		let scores = orderedCards.map(card => {
 			let cardObj = new Card(card)
 			return cardObj.valueScore()
 		})
 		scores = this.unique(scores)
-		if (scores.includes(14)) scores = [1].concat(scores)
+		// if (scores.includes(14)) scores = [1].concat(scores)
+		if (scores.includes(14)) scores.push(1)
 		console.log("scores", scores)
 		if (scores.length > 4) {
 			for (let i = 0; i < scores.length - 4; i++) {
 				let u0 = scores[i]
 				let un = scores[i + 4]
-				if (un == u0 + 4) {
+				if (un == u0 - 4) {
 					let sumArith = 5 * (u0 + un) / 2
 					let sum = 0
 					for (let j = i; j < i + 5; j++) {
 						sum += scores[j]
 					}
-					if (sum == sumArith) return true
+					if (sum == sumArith) {
+						this.scoreStraight = scores.slice(i,i+5)
+						console.log("this.scoreStraight = ", this.scoreStraight)
+						return true
+					}
 				}
 			}
 		}

@@ -30,6 +30,8 @@ function main() {
 	// allCards = ["2h", "Jh", "5d", "As", "6d", "5s", "4d", "3d", "2d"]
 	// allCards = ["2h", "Jh", "5h", "Qs", "Qd", "Js", "10d", "9d", "8d"]
 	// allCards = ["2h", "Jh", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
+	// allCards = ["2h", "Ah", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
+	// allCards = ["2h", "Ah", "5h", "5s", "Kd", "Js", "4d", "3d", "2d"]
 	console.log("allCards = ", allCards)
 	let imagesSrc = allCards.map(card => {
 		let cardObj = new Card(card)
@@ -64,8 +66,11 @@ function main() {
 	
 	// Winner
 	let winnerHand = combo.compareCombos(heroHand, vilainHand)
-	let isHeroWin = combo.areHandsEqual(winnerHand, heroHand)
-	let isVilainWin = combo.areHandsEqual(winnerHand, vilainHand)
+	let winnerScore = combo.getHandScore(winnerHand)
+	let heroScore = combo.getHandScore(heroHand)
+	let vilainScore = combo.getHandScore(vilainHand)
+	let isHeroWin = combo.areHandsEqual(winnerHand, heroHand) && heroScore == winnerScore
+	let isVilainWin = combo.areHandsEqual(winnerHand, vilainHand) && vilainScore == winnerScore
 
 	// Indexes hand
 	heroHandIndexes = []
@@ -86,12 +91,12 @@ function main() {
 	localStorage.isVilainWin = isVilainWin
 
 	// Flip cards one by one
-	let idSwitchCard = setInterval(switchCard, 200)
+	let intSwitchCard = setInterval(switchCard, 200)
 	let i = 0
 	function switchCard() {
 		if (i == 9) {
 			indexMassage(isHeroWin, isVilainWin, heroHandName, vilainHandName)
-			clearInterval(idSwitchCard)
+			clearInterval(intSwitchCard)
 		}
 		else {
 			flipCard(IMAGES_ID[i], imagesSrc[i])

@@ -18,12 +18,17 @@ class Combo {
 		else if (player.hasAFlush()) {
 			hand = this.getCards(player.typeOcc, [7, 6, 5])
 			let cardType = new Card(hand[0]).type()
-			handName = `Flush : ${TYPES_NAME[cardType]}`
+			handName = `Couleur : ${TYPES_NAME[cardType]}`
 		}
 		else if (player.hasAStraight()) {
-			hand = this.getCards(player.valueOcc, [1])
+			player.scoreStraight.forEach(score => {
+				let value = score == 1 ? "A" : VALUES[score - 2]
+				let orderedCards = this.orderCards(player.cards)
+				let occur = orderedCards.map(card => new Card(card).value() == value ? card : null).filter(Boolean)
+				hand.push(occur[0])
+			})
 			let cardValue = new Card(hand[0]).value()
-			handName = `Suite hauteur : ${VALUES_NAME[cardValue]}`
+			handName = `Suite : ${VALUES_NAME[cardValue]}`
 		}
 		else if (player.hasAThree()) {
 			hand = this.getCards(player.valueOcc, [3, 1])
@@ -82,19 +87,15 @@ class Combo {
 
 	compareCombos(cards1, cards2) {
 		let tri = [cards1, cards2].sort((hand1, hand2) => {
-			let score1 = this.getHandScore(hand1)
-			let score2 = this.getHandScore(hand2)
-			if (score1 > score2) return -1
-			else if (score1 < score2) return 1
+			let diffHands = this.getHandScore(hand2) - this.getHandScore(hand1)
+			if (diffHands != 0) return diffHands
 			else {
 				for (let i = 0; i < hand1.length; i++) {
-					let card1Obj = new Card(hand1[i])
-					let card2Obj = new Card(hand2[i])
-					if (card1Obj.valueScore() > card2Obj.valueScore()) return -1
-					else if (card1Obj.valueScore() < card2Obj.valueScore()) return 1
+					let diffCards = new Card(hand2[i]).valueScore() - new Card(hand1[i]).valueScore()
+					if (diffCards != 0) return diffCards
 					else if (i == hand1.length - 1) {
-						if (card1Obj.typeScore() > card2Obj.typeScore()) return -1
-						else if (card1Obj.typeScore() < card2Obj.typeScore()) return 1
+						let diffTypes = new Card(hand2[i]).typeScore() - new Card(hand1[i]).typeScore()
+						if (diffTypes != 0) return diffTypes
 					}
 				}
 				return 0
@@ -105,9 +106,10 @@ class Combo {
 	
 	getHandScore(hand) {
 		let player = new Player(hand)
-		if (player.hasAFour()) return 7
-		else if (player.hasAFull()) return 6
-		else if (player.hasAFlush()) return 5
+		if (player.hasAFour()) return 8
+		else if (player.hasAFull()) return 7
+		else if (player.hasAFlush()) return 6
+		else if (player.hasAStraight()) return 5
 		else if (player.hasAThree()) return 4
 		else if (player.hasADoublePair()) return 3
 		else if (player.hasAPair()) return 2
