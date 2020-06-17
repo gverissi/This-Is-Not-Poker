@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+	<title>Not a Poker !</title>
+</head>
+<body>
+
+	<!-- SOUND EFFECTS -->
+	<!-- ============= -->
+	<audio id="id_flipSound">
+		<source src="assets/sounds/card_flip_sound.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="id_chipSound">
+		<source src="assets/sounds/chip_sound.mp3" type="audio/mpeg">
+	</audio>
+	<!-- ================================================================ -->
+
+
+	<!-- HEADER -->
+	<!-- ====== -->
+	<div class="flex_between" style="background-color: brown;">
+		<a href="index.html" style="margin-left: 3vw; text-decoration: none;"><h1>THIS IS NOT POKER</h1></a>
+		<div class="flex_between" style="width: 27vw; margin-right: 3vw; padding: 0.4vw 0;">
+			<button style="font-size: 1vw; padding: 0 1vw;"><a href="index.html" style="text-decoration: none;">Jouez</a></button>
+			<button style="font-size: 1vw; padding: 0 1vw;">Nos engagements</button>
+			<button style="font-size: 1vw; padding: 0 1vw;">Les partenaires</button>
+		</div>
+	</div>
+	<!-- ================================================================ -->
+	
+
+	<main>
+		<div id='id_container'>
+
+			<!-- HERO -->
+			<!-- ==== -->
+			<div class="perso">
+				<h3 class="text_center">Hero</h3>
+				<div class="div_avatar">
+					<img class="avatar" src="assets/images/avatars/hero.png" alt="">
+				</div>
+				<div class="player_cards">
+					<div class="div_card"><img id="id_hero_card1" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+					<div class="div_card"><img id="id_hero_card2" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				</div>
+				<div id="id_text_hero" class="perso_message" onmouseover="highlight(this)" onmouseout="unHighlight(this)">
+					<p id="id_text_hero_res" class="text_center">Gagnant :</p>
+					<p id="id_text_hero_hand" class="text_center">Full !</p>
+				</div>
+			</div>
+			<!-- ================================================================ -->
+
+			<!-- PLAY BUTTON + MESSAGE -->
+			<!-- ===================== -->
+			<div>
+				<div style="display: flex; justify-content: center; padding: 4vw 0;">
+					<button id="id_play_btn" class="btn_play" onclick="main()">JOUER !</button>
+				</div>
+				<div id="id_message">
+					<div>
+						<p id="id_index_text1" class="text_center">Vous avez gagné !</p>
+					</div>
+					<div class="div_btns">
+						<button class="btns" onclick="playAgain()">Rejouer !</button>
+						<a href="reward.html"><button class="btns">Récompense !</button></a>
+					</div>
+				</div>
+			</div>
+			<!-- ================================================================ -->
+
+			<!-- VILAN -->
+			<!-- ===== -->
+			<div class="perso">
+				<h3 class="text_center">Vilain</h3>
+				<div class="div_avatar">
+					<img class="avatar" src="assets/images/avatars/vilain.png" alt="">
+				</div>
+				<div class="player_cards">
+					<div class="div_card"><img id="id_vilain_card1" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+					<div class="div_card"><img id="id_vilain_card2" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				</div>
+				<div id="id_text_vilain" class="perso_message" onmouseover="highlight(this)" onmouseout="unHighlight(this)">
+					<p id="id_text_vilain_res" class="text_center">Perdant :</p>
+					<p id="id_text_vilain_hand" class="text_center">Pair !</p>
+				</div>
+			</div>
+			<!-- ================================================================ -->
+
+		</div>
+
+		<!-- THE BOARD -->
+		<!-- ========= -->
+		<div class="table">
+			<div class="cards">
+				<div class="div_card"><img id="id_card1" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				<div class="div_card"><img id="id_card2" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				<div class="div_card"><img id="id_card3" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				<div class="div_card"><img id="id_card4" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+				<div class="div_card"><img id="id_card5" class="card" src="assets/images/cards/back_scale.png" alt=""></div>
+			</div>
+		</div>
+		<!-- ================================================================ -->
+
+	</main>
+
+	<!-- COOL PICTURE -->
+	<!-- ============ -->
+	<div class="flex_around" style="background-color: brown;">
+		<div style="padding-top: 2vw;">
+			<img style="width: 40vw;" src="assets/images/engagement.png" alt="">
+		</div>
+		<div class="flex_column" style="width: 50vw;">
+			<h2>Le jeu qui vous ressemble</h2>
+			<div class="flex_between">
+					<div style="width: 30%;">
+						<div class="flex_center"><i class="fas fa-thumbs-up" style="font-size: 4vw; color: dodgerblue;"></i></div>
+						<h4>Fun</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas repudiandae cumque ut.</p>
+					</div>
+					<div style="width: 30%;">
+						<div class="flex_center"><i class="fas fa-lock" style="font-size: 4vw; color: dodgerblue;"></i></div>
+						<h4>Sécurisé</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas repudiandae cumque ut.</p>
+					</div>
+					<div style="width: 30%;">
+						<div class="flex_center"><i class="fas fa-gamepad" style="font-size: 4vw; color: dodgerblue;"></i></div>
+						<h4>Expérience de jeu</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas repudiandae cumque ut.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ================================================================ -->
+
+	<!-- PARTNERSHIP -->
+	<!-- =========== -->
+	<div class="flex_column" style="background-color: dodgerblue;">
+		<h2>Nos partenaires</h2>
+		<div class="flex_center">
+			<div class="flex_between" style="width: 80vw;">
+				<div>
+					<img style="width: 20vw;" src="assets/images/partners/chips-forum.png" alt="">
+				</div>
+				<div>
+					<img style="width: 20vw; padding-top: 0.5vw;" src="assets/images/partners/kawaii-game.png" alt="">
+				</div>
+				<div>
+					<img style="width: 20vw; padding-top: 2vw;" src="assets/images/partners/aces-magazine.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ================================================================ -->
+
+	<!-- FOOTER -->
+	<!-- ====== -->
+	<footer class="flex_center">
+		<div class="flex_between" style="width: 80vw;">
+			<div>
+				<h3>TINP</h3>
+				<p>Nous contacter</p>
+				<p>Nous rejoindre</p>
+				<p>FAQ</p>
+			</div>
+			<div>
+				<h3>Le jeu</h3>
+				<p>Les règles</p>
+				<p>Histoire</p>
+			</div>
+			<div>
+				<h3>Les bonus</h3>
+				<p>Premier dépot</p>
+				<p>Early Adopter</p>
+				<p>Parainage</p>
+			</div>
+			<div>
+				<h3>Nos partenaires</h3>
+				<p>chips-forum</p>
+				<p>kawaii-game</p>
+				<p>aces-magazine</p>
+			</div>
+			<div>
+				<div class="bank" style="background-image: url(assets/images/bank/stripe.png);"></div>
+				<div class="bank" style="background-image: url(assets/images/bank/visa.png);"></div>
+			</div>
+		</div>
+	</footer>
+	<!-- ================================================================ -->
+
+
+	<script src="assets/js/const/cards_const.js"></script>
+	<script src="assets/js/const/images_id.js"></script>
+	<script src="assets/js/front/anim.js"></script>
+	<script src="assets/js/front/indexMessage.js"></script>
+	<script src="assets/js/fun/playAgain.js"></script>
+	<script src="assets/js/classes/Deck.js"></script>
+	<script src="assets/js/classes/Card.js"></script>
+	<script src="assets/js/classes/Player.js"></script>
+	<script src="assets/js/classes/Combo.js"></script>
+	<script src="assets/js/main.js"></script>
+	
+
+
+</body>
+</html>

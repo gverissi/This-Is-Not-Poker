@@ -1,0 +1,245 @@
+* {
+	outline: none;font-family: 'Piedra', cursive;
+}
+
+
+/* index.html */
+/* ========== */
+
+main {
+	background-color: dodgerblue;
+	padding: 2vw 0;
+}
+
+#id_container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.perso {
+	width: 16vw;
+}
+
+.div_avatar {
+	display: flex;
+	justify-content: center;
+}
+
+.avatar {
+	height: 8vw;
+}
+
+.player_cards {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1vw;
+}
+
+.div_card {
+	width: 7vw;
+	height: 10.185vw; /* 323/222*width  */
+}
+
+.card {
+	width: 100%;
+	border-style: solid;
+	border-width: 0.1vw;
+	border-radius: 0.6vw;
+	position: relative;
+	box-sizing: border-box;
+	background-color: cornsilk;
+}
+
+.perso_message {
+	margin-top: 1vw;
+	border-radius: 0.6vw;
+	visibility: hidden;
+}
+
+#id_text_hero {
+	background-color: #5cb85c;
+}
+
+#id_text_vilain {
+	background-color: #d9534f;
+}
+
+.btn_play {
+	font-size: 1vw;
+	width: 7vw;
+	height: 7vw;
+	background-image: url("../images/jeton.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-position: center; */
+	border-radius: 50%;
+	/* border: 2px solid grey; */
+	border-style: none;
+	box-shadow: 0.5vw 0.5vw 0.25vw grey;
+	background-color: transparent;
+}
+
+.btn_play:active {
+  /* box-shadow: 0 5px #666; */
+  box-shadow: 0.25vw 0.25vw 0.25vw #666;
+  transform: translateY(0.25vw);
+}
+
+#id_message {
+	visibility: hidden;
+	padding: 1vw;
+	border-radius: 0.6vw;
+	background-color: #5cb85c;
+}
+
+.div_btns {
+	display: flex;
+	justify-content: center;
+	padding-top: 1vw;
+}
+
+.btns {
+	padding: 1vw;
+	margin: 0 2vw;
+	width: 10vw;
+	font-size: 1vw;
+	border-radius: 1vw;
+}
+
+.table {
+	display: flex;
+	justify-content: center;
+	/* margin-top: 1vw; */
+}
+
+.cards {
+	display: flex;
+	justify-content: space-between;
+	/* margin-top: 2vw; */
+	width: 40vw;
+}
+
+footer {
+	background-color: brown;
+	padding: 2vw 0
+}
+
+.bank {
+	width: 7vw; height: 3vw;
+	background-size: cover;
+	background-position: center;
+	background-color: honeydew;
+	border-radius: 0.5vw;
+	margin: 1.5vw 0;
+}
+/* ============================================================================ */
+
+
+/* COMMUN */
+/* ====== */
+
+.flex_center {
+	display: flex;
+	justify-content: center;
+}
+
+.flex_column {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex_between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex_around {
+	display: flex;
+	justify-content: space-around;
+}
+
+.text_center {
+	text-align: center;
+}
+
+p {
+	margin: 0;
+	font-size: 1.5vw;
+}
+
+h1 {
+	font-size: 3vw;
+	margin: 0;
+	color: goldenrod;
+}
+
+h2 {
+	font-size: 2.5vw;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	text-align: center;
+	color: goldenrod;
+}
+
+h3 {
+	font-size: 2vw;
+	margin: 0;
+	/* margin-top: 1vw; */
+	margin-bottom: 1vw;
+	/* text-align: center; */
+	color: goldenrod;
+}
+
+h4 {
+	font-size: 1.5vw;
+	margin: 0;
+	margin-bottom: 1vw;
+	text-align: center;
+	color: goldenrod;
+}
+
+/* ============================================================================ */
+
+
+/* reward.html */
+/* =========== */
+
+#id_form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2vw;
+	visibility: hidden;
+}
+
+.div_input {
+	display: flex;
+	justify-content: center;
+	padding: 2vw;
+}
+
+.input {
+	margin: 0 2vw;
+	padding: 0.5vw;
+	font-size: 1vw;
+	border-radius: 0.5vw;
+}
+
+/* ============================================================================ */
+
+.highlight {
+	box-shadow: 1vw 1vw 0.5vw grey;
+	transform: translateY(-1vw);
+}
+
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+	animation-direction: alternate;
+}
+
+@keyframes floating {
+    from { transform: translateY(-1vw); }
+    to   { transform: translateY(-1.3vw); }
+}
