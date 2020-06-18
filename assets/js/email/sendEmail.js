@@ -16,7 +16,7 @@ function fetchEmail(email) {
 	let options = {
 		method: 'POST',
 		body: JSON.stringify(data),
-		mode: 'cors',
+		mode: 'no-cors',
 		headers: {'Access-Control-Allow-Origin':'*'}
 	};
 
