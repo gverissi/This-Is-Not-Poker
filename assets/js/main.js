@@ -25,14 +25,7 @@ function main() {
 	
 	// Create arrays of all cards (9) and url's for the images id
 	let allCards = deck.cards(0, 8)
-	// allCards = ["2h", "4h", "5d", "2s", "6d", "5s", "4d", "3d", "2d"]
-	// allCards = ["2h", "Jh", "5d", "Qs", "6d", "5s", "4d", "3d", "2d"]
-	// allCards = ["2h", "Jh", "5d", "As", "6d", "5s", "4d", "3d", "2d"]
-	// allCards = ["2h", "Jh", "5h", "Qs", "Qd", "Js", "10d", "9d", "8d"]
-	// allCards = ["2h", "Jh", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
-	// allCards = ["2h", "Ah", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
 	// allCards = ["2h", "Ah", "5h", "5s", "Kd", "Js", "4d", "3d", "2d"]
-	console.log("allCards = ", allCards)
 	let imagesSrc = allCards.map(card => {
 		let cardObj = new Card(card)
 		return cardObj.cardName()
@@ -110,15 +103,14 @@ function main() {
 	// }
 	// indexMassage(isHeroWin, isVilainWin, heroHandName, vilainHandName)
 
-	console.log("Pour le hero :")
-	console.log("heroHand = ", heroHand)
-
-	console.log("Pour le vilain :")
-	console.log("vilainHand = ", vilainHand)
-
-	console.log("Winner :")
-	console.log("winnerHand = ", winnerHand)
 	
-	console.log("==================")
+	// console.log("allCards = ", allCards)
+	// console.log("Pour le hero :")
+	// console.log("heroHand = ", heroHand)
+	// console.log("Pour le vilain :")
+	// console.log("vilainHand = ", vilainHand)
+	// console.log("Winner :")
+	// console.log("winnerHand = ", winnerHand)
+	// console.log("==================")
 
 }

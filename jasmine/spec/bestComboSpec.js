@@ -1,4 +1,6 @@
-
+//  À savoir : une carte est une chaîne de caractère qui contient deux parties :
+//  - La valeur de la carte (ordre croissant): 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A
+//  - Le type de la carte (ordre croissant) : d => ♦, c => ♣, h => ♥, s => ♠
 
 describe('bestCombo', () => {
 	var combo

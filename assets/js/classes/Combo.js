@@ -4,7 +4,12 @@ class Combo {
 	bestCombo(player) {
 		let handName = ""
 		let hand = []
-		if (player.hasAFour()) {
+		if (player.hasAStraightFlush()) {
+			hand = player.handStraightFlush
+			let cardValue = new Card(hand[0]).value()
+			handName = `Quinte Flush : ${VALUES_NAME[cardValue]}`
+		}
+		else if (player.hasAFour()) {
 			hand = this.getCards(player.valueOcc, [4, 1])
 			let cardValue = new Card(hand[0]).value()
 			handName = `Carré : ${VALUES_NAME[cardValue]}`
@@ -74,13 +79,10 @@ class Combo {
 	orderCards(cards) {
 		let orderedCards = cards.slice(0, cards.length)
 		return orderedCards.sort((card1, card2) => {
-			let card1Obj = new Card(card1)
-			let card2Obj = new Card(card2)
-			if (card1Obj.valueScore() > card2Obj.valueScore()) return -1
-			else if (card1Obj.valueScore() < card2Obj.valueScore()) return 1
+			let diffCards = new Card(card2).valueScore() - new Card(card1).valueScore()
+			if (diffCards != 0) return diffCards
 			else {
-				if (card1Obj.typeScore() > card2Obj.typeScore()) return -1
-				else return 1
+				return new Card(card2).typeScore() - new Card(card1).typeScore()
 			}
 		})
 	}
@@ -106,7 +108,8 @@ class Combo {
 	
 	getHandScore(hand) {
 		let player = new Player(hand)
-		if (player.hasAFour()) return 8
+		if (player.hasAStraightFlush()) return 9
+		else if (player.hasAFour()) return 8
 		else if (player.hasAFull()) return 7
 		else if (player.hasAFlush()) return 6
 		else if (player.hasAStraight()) return 5

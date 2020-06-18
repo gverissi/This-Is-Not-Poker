@@ -5,6 +5,7 @@ class Player {
 		this.valueOcc = {}
 		this.typeOcc = {}
 		this.scoreStraight = []
+		this.handStraightFlush = []
 		this.cards = cards
 		this.valueOccurences()
 		this.typeOccurences()
@@ -43,6 +44,19 @@ class Player {
 		else return []
 	}
 
+	hasAStraightFlush() {
+		if (this.hasAFlush()) {
+			let combo = new Combo()
+			let hand = combo.getCards(this.typeOcc, [7, 6, 5])
+			let flushPlayer = new Player(hand)
+			if (flushPlayer.hasAStraight()) {
+				this.handStraightFlush = hand
+				return true
+			}
+		}
+		return false
+	}
+
 	hasAFour() {
 		let nbOcc = Object.values(this.valueOcc).map(cards => cards.length)
 		return nbOcc.includes(4)
@@ -60,33 +74,49 @@ class Player {
 
 	hasAStraight() {
 		let combo = new Combo()
-		// let orderedCards = combo.orderCards(this.cards).reverse()
 		let orderedCards = combo.orderCards(this.cards)
 		let scores = orderedCards.map(card => {
 			let cardObj = new Card(card)
 			return cardObj.valueScore()
 		})
 		scores = this.unique(scores)
-		// if (scores.includes(14)) scores = [1].concat(scores)
 		if (scores.includes(14)) scores.push(1)
-		console.log("scores", scores)
 		if (scores.length > 4) {
+
+			// for (let i = 0; i < scores.length - 4; i++) {
+			// 	let u0 = scores[i]
+			// 	let un = scores[i + 4]
+			// 	if (un == u0 - 4) {
+			// 		let sumArith = 5 * (u0 + un) / 2
+			// 		let sum = 0
+			// 		for (let j = i; j < i + 5; j++) {
+			// 			sum += scores[j]
+			// 		}
+			// 		if (sum == sumArith) {
+			// 			this.scoreStraight = scores.slice(i,i+5)
+			// 			return true
+			// 		}
+			// 	}
+			// }
+
+			// for (let i = 0; i < scores.length - 4; i++) {
+			// 	for (let j = i + 1; j < i + 5; j++) {
+			// 		if (scores[j] != scores[j - 1] - 1) break
+			// 		else if (j == i + 4) {
+			// 			this.scoreStraight = scores.slice(i,i+5)
+			// 			return true
+			// 		}
+			// 	}
+			// }
+
 			for (let i = 0; i < scores.length - 4; i++) {
-				let u0 = scores[i]
-				let un = scores[i + 4]
-				if (un == u0 - 4) {
-					let sumArith = 5 * (u0 + un) / 2
-					let sum = 0
-					for (let j = i; j < i + 5; j++) {
-						sum += scores[j]
-					}
-					if (sum == sumArith) {
-						this.scoreStraight = scores.slice(i,i+5)
-						console.log("this.scoreStraight = ", this.scoreStraight)
-						return true
-					}
+				let u = scores.slice(i,i+5)
+				if ((u[0 + 4] == u[0] - 4) && ((5 * (u[0] + u[0 + 4]) / 2) == u.reduce((a, c) => a + c))) {
+					this.scoreStraight = u
+					return true
 				}
 			}
+			
 		}
 		return false
 	}

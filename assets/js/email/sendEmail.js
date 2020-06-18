@@ -31,7 +31,7 @@ function fetchEmail(email) {
 	// 	headers: {'Access-Control-Allow-Origin':'*'}
 	// };
 
-	// // Local
+	// Local
 	// let url = "http://localhost:1664/api/email";
 
 	// Heroku
@@ -39,7 +39,7 @@ function fetchEmail(email) {
 
 	fetch(url, options).then(
 		function () {
-			alert("Votre email a bien été envoyé !\nVous allez être redirigé vers la page d'accueille.")
+			alert("Votre email a bien été envoyé !\nVous allez être redirigé vers la page d'accueil.")
 			window.location.replace("index.html");
 		}
 	).catch(

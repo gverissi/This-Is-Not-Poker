@@ -105,4 +105,94 @@ describe('compareCombos', () => {
 		expect(combo.compareCombos(cards1, cards2)).toEqual(["Ks", "Kc", "3s", "3c", "Jh"])
 	})
 
+	it('return expected Straight Flush vs Straight', () => {
+		let allCards = ["2h", "4h", "5d", "2s", "6d", "5s", "4d", "3d", "2d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["6d", "5d", "4d", "3d", "2d"])
+	})
+
+	it('return expected Straight Flush vs Straight', () => {
+		let allCards = ["2h", "Jh", "5d", "Qs", "6d", "5s", "4d", "3d", "2d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["6d", "5d", "4d", "3d", "2d"])
+	})
+
+	it('return expected Straight Flush vs Straight', () => {
+		let allCards = ["2h", "Jh", "5d", "As", "6d", "5s", "4d", "3d", "2d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["6d", "5d", "4d", "3d", "2d"])
+	})
+
+	it('return expected egalité Straight vs Straight', () => {
+		let allCards = ["2h", "Jh", "5h", "Qs", "Qd", "Js", "8d", "9d", "10d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["Qd", "Js", "10d", "9d", "8d"])
+	})
+
+	it('return expected egalité Straight vs Straight', () => {
+		let allCards = ["Qs", "Jh", "5h", "2h", "Qd", "Js", "8d", "9d", "10d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["Qs", "Js", "10d", "9d", "8d"])
+	})
+
+	it('return expected Hauteur vs Straight', () => {
+		let allCards = ["2h", "Jh", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["Kd", "Qs", "Js", "10d", "9d"])
+	})
+
+	it('return expected Hauteur vs Straight', () => {
+		let allCards = ["2h", "Ah", "5h", "Qs", "Kd", "Js", "10d", "9d", "7d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["Ah", "Kd", "Qs", "Js", "10d"])
+	})
+
+	it('return expected Pair vs Straight', () => {
+		let allCards = ["2h", "Ah", "5h", "5s", "Kd", "Js", "4d", "3d", "2d"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["5s", "4d", "3d", "2d", "Ah"])
+	})
+
+	it('return expected Royal Straight Flush vs Straight Flush', () => {
+		let allCards = ["Kh", "9h", "Ah", "8h", "Kd", "Js", "Jh", "10h", "Qh"]
+		let board = allCards.slice(4, 9)
+		let player1 = new Player([allCards[0], allCards[2], board].flat())
+		let player2 = new Player([allCards[1], allCards[3], board].flat())
+		let [name1, cards1] = combo.bestCombo(player1)
+		let [name2, cards2] = combo.bestCombo(player2)
+		expect(combo.compareCombos(cards1, cards2)).toEqual(["Ah", "Kh", "Qh", "Jh", "10h"])
+	})
+
 })
