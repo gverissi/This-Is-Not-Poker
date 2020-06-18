@@ -13,7 +13,11 @@ function fetchEmail(email) {
 		method: 'POST',
 		body: JSON.stringify(data)
 	};
-	let url = "http://localhost:1664/api/email/add";
+	// // Local
+	// let url = "http://localhost:1664/api/email/add";
+
+	// Heroku
+	let url = "https://api-email-greg.herokuapp.com/api/email/add";
 
 	fetch(url, options).then(
 		function (response) {
