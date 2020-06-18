@@ -24,7 +24,7 @@ function fetchEmail(email) {
 	// let url = "http://localhost:1664/api/email/add";
 
 	// Heroku
-	let url = "https://api-email-greg.herokuapp.com/api/email/add";
+	let url = "https://api-email-greg.herokuapp.com/api/email";
 	// let url = "https://cors-anywhere.herokuapp.com/https://api-email-greg.herokuapp.com/api/email/add";
 
 	// fetch("url", {
