@@ -1,62 +1,17 @@
 
 class Combo {
 
-	bestCombo(player) {
-		let handName = ""
-		let hand = []
-		if (player.hasAStraightFlush()) {
-			hand = player.handStraightFlush
-			let cardValue = new Card(hand[0]).value()
-			handName = `Quinte Flush : ${VALUES_NAME[cardValue]}`
+	static factory(player) {
+		let ClassName = Combo.comboName(player)
+		return new ClassName(player)
+	}
+
+	static comboName(player) {
+		for (let i = 0; i < COMBOS_LIST.length - 1; i++) {
+			let ClassName = COMBOS_LIST[i]
+			if (ClassName.isValid(player)) return ClassName
 		}
-		else if (player.hasAFour()) {
-			hand = this.getCards(player.valueOcc, [4, 1])
-			let cardValue = new Card(hand[0]).value()
-			handName = `Carré : ${VALUES_NAME[cardValue]}`
-		}
-		else if (player.hasAFull()) {
-			hand = this.getCards(player.valueOcc, [3, 2])
-			let card1Value = new Card(hand[0]).value()
-			let card2Value = new Card(hand[3]).value()
-			handName = `Full : ${VALUES_NAME[card1Value]} par les ${VALUES_NAME[card2Value]}`
-		}
-		else if (player.hasAFlush()) {
-			hand = this.getCards(player.typeOcc, [7, 6, 5])
-			let cardType = new Card(hand[0]).type()
-			handName = `Couleur : ${TYPES_NAME[cardType]}`
-		}
-		else if (player.hasAStraight()) {
-			player.scoreStraight.forEach(score => {
-				let value = score == 1 ? "A" : VALUES[score - 2]
-				let orderedCards = this.orderCards(player.cards)
-				let occur = orderedCards.map(card => new Card(card).value() == value ? card : null).filter(Boolean)
-				hand.push(occur[0])
-			})
-			let cardValue = new Card(hand[0]).value()
-			handName = `Suite : ${VALUES_NAME[cardValue]}`
-		}
-		else if (player.hasAThree()) {
-			hand = this.getCards(player.valueOcc, [3, 1])
-			let cardValue = new Card(hand[0]).value()
-			handName = `Brelan : ${VALUES_NAME[cardValue]}`
-		}
-		else if (player.hasADoublePair()) {
-			hand = this.getCards(player.valueOcc, [2, 1])
-			let card1Value = new Card(hand[0]).value()
-			let card2Value = new Card(hand[2]).value()
-			handName = `Double Pair : ${VALUES_NAME[card1Value]} et ${VALUES_NAME[card2Value]}`
-		}
-		else if (player.hasAPair()) {
-			hand = this.getCards(player.valueOcc, [2, 1])
-			let cardValue = new Card(hand[0]).value()
-			handName = `Pair : ${VALUES_NAME[cardValue]}`
-		}
-		else {
-			hand = this.orderCards(player.cards).slice(0, 5)
-			let cardValue = new Card(hand[0]).value()
-			handName = `Hauteur : ${VALUES_NAME[cardValue]}`
-		}
-		return [handName, hand]
+		return COMBOS_LIST[COMBOS_LIST.length - 1]
 	}
 
 	getCards(occ, nbArr) {
@@ -87,16 +42,16 @@ class Combo {
 		})
 	}
 
-	compareCombos(cards1, cards2) {
-		let tri = [cards1, cards2].sort((hand1, hand2) => {
-			let diffHands = this.getHandScore(hand2) - this.getHandScore(hand1)
+	compareCombos(comboHand1, comboHand2) {
+		let tri = [comboHand1, comboHand2].sort((combo1, combo2) => {
+			let diffHands = combo2.getHandScore() - combo1.getHandScore()
 			if (diffHands != 0) return diffHands
 			else {
-				for (let i = 0; i < hand1.length; i++) {
-					let diffCards = new Card(hand2[i]).valueScore() - new Card(hand1[i]).valueScore()
+				for (let i = 0; i < combo1.getHand()[1].length; i++) {
+					let diffCards = new Card(combo2.getHand()[1][i]).valueScore() - new Card(combo1.getHand()[1][i]).valueScore()
 					if (diffCards != 0) return diffCards
-					else if (i == hand1.length - 1) {
-						let diffTypes = new Card(hand2[i]).typeScore() - new Card(hand1[i]).typeScore()
+					else if (i == combo1.getHand()[1].length - 1) {
+						let diffTypes = new Card(combo2.getHand()[1][i]).typeScore() - new Card(combo1.getHand()[1][i]).typeScore()
 						if (diffTypes != 0) return diffTypes
 					}
 				}
@@ -104,19 +59,6 @@ class Combo {
 			}
 		})
 		return tri[0]
-	}
-	
-	getHandScore(hand) {
-		let player = new Player(hand)
-		if (player.hasAStraightFlush()) return 9
-		else if (player.hasAFour()) return 8
-		else if (player.hasAFull()) return 7
-		else if (player.hasAFlush()) return 6
-		else if (player.hasAStraight()) return 5
-		else if (player.hasAThree()) return 4
-		else if (player.hasADoublePair()) return 3
-		else if (player.hasAPair()) return 2
-		else return 1
 	}
 
 	areHandsEqual(hand1, hand2) {

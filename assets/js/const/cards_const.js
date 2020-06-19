@@ -7,3 +7,15 @@ const VALUES_NAME = {
 	"J": "jack", "Q": "queen", "K": "king", "A": "ace"
 }
 const TYPES_NAME = {"d": "diamonds", "c": "clubs", "h": "hearts", "s": "spades"}
+
+const COMBOS_LIST = [
+	StraightFlush,
+	FourOfAKind,
+	Full,
+	Flush,
+	Straight,
+	ThreeOfAKind,
+	DoublePair,
+	Pair,
+	Hight
+]
