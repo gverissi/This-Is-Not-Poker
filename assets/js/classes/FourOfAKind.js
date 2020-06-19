@@ -13,8 +13,8 @@ class FourOfAKind extends Combo {
 	getHand() {
 		let hand = this.getCards(this.player.valueOcc, [4, 1])
 		let cardValue = new Card(hand[0]).value()
-		let handName = `Carré : ${VALUES_NAME[cardValue]}`
-		return [handName, hand]
+		this.handName = `Carré : ${FRENCH_VALUES_NAME[cardValue]}`
+		return hand
 	}
 
 	getHandScore() {

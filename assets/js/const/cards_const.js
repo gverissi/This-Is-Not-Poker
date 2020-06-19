@@ -8,6 +8,12 @@ const VALUES_NAME = {
 }
 const TYPES_NAME = {"d": "diamonds", "c": "clubs", "h": "hearts", "s": "spades"}
 
+const FRENCH_VALUES_NAME = {
+	"2": "Deux", "3": "Trois", "4": "Quatre", "5": "Cinq", "6": "Six", "7": "Sept", "8": "Huit", "9": "Neuf", "10": "Dix",
+	"J": "Valet", "Q": "Dame", "K": "Roi", "A": "As"
+}
+const FRENCH_TYPES_NAME = {"d": "Carreaux", "c": "Trèfle", "h": "Coeur", "s": "Pique"}
+
 const COMBOS_LIST = [
 	StraightFlush,
 	FourOfAKind,
@@ -17,5 +23,5 @@ const COMBOS_LIST = [
 	ThreeOfAKind,
 	DoublePair,
 	Pair,
-	Hight
+	High
 ]

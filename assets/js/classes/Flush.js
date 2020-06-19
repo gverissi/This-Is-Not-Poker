@@ -13,8 +13,8 @@ class Flush extends Combo {
 	getHand() {
 		let hand = this.getCards(this.player.typeOcc, [7, 6, 5])
 		let cardType = new Card(hand[0]).type()
-		let handName = `Couleur : ${TYPES_NAME[cardType]}`
-		return [handName, hand]
+		this.handName = `Couleur : ${FRENCH_TYPES_NAME[cardType]}`
+		return hand
 	}
 
 	getHandScore() {

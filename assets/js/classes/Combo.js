@@ -1,6 +1,10 @@
 
 class Combo {
 
+	constructor() {
+		this.handName = ""
+	}
+
 	static factory(player) {
 		let ClassName = Combo.comboName(player)
 		return new ClassName(player)
@@ -47,11 +51,11 @@ class Combo {
 			let diffHands = combo2.getHandScore() - combo1.getHandScore()
 			if (diffHands != 0) return diffHands
 			else {
-				for (let i = 0; i < combo1.getHand()[1].length; i++) {
-					let diffCards = new Card(combo2.getHand()[1][i]).valueScore() - new Card(combo1.getHand()[1][i]).valueScore()
+				for (let i = 0; i < combo1.getHand().length; i++) {
+					let diffCards = new Card(combo2.getHand()[i]).valueScore() - new Card(combo1.getHand()[i]).valueScore()
 					if (diffCards != 0) return diffCards
-					else if (i == combo1.getHand()[1].length - 1) {
-						let diffTypes = new Card(combo2.getHand()[1][i]).typeScore() - new Card(combo1.getHand()[1][i]).typeScore()
+					else if (i == combo1.getHand().length - 1) {
+						let diffTypes = new Card(combo2.getHand()[i]).typeScore() - new Card(combo1.getHand()[i]).typeScore()
 						if (diffTypes != 0) return diffTypes
 					}
 				}
@@ -67,6 +71,10 @@ class Combo {
 			let card2Obj = new Card(hand2[index])
 			return card1Obj.value() === card2Obj.value()
 		})
+	}
+
+	getHandName() {
+		return this.handName
 	}
 
 }

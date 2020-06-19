@@ -1,5 +1,5 @@
 
-class Hight extends Combo {
+class High extends Combo {
 
 	constructor(player) {
 		super()
@@ -9,8 +9,8 @@ class Hight extends Combo {
 	getHand() {
 		let hand = this.orderCards(this.player.cards).slice(0, 5)
 		let cardValue = new Card(hand[0]).value()
-		let handName = `Hauteur : ${VALUES_NAME[cardValue]}`
-		return [handName, hand]
+		this.handName = `Hauteur : ${FRENCH_VALUES_NAME[cardValue]}`
+		return hand
 	}
 
 	getHandScore() {

@@ -13,8 +13,8 @@ class ThreeOfAKind extends Combo {
 	getHand() {
 		let hand = this.getCards(this.player.valueOcc, [3, 1])
 		let cardValue = new Card(hand[0]).value()
-		let handName = `Brelan : ${VALUES_NAME[cardValue]}`
-		return [handName, hand]
+		this.handName = `Brelan : ${FRENCH_VALUES_NAME[cardValue]}`
+		return hand
 	}
 
 	getHandScore() {

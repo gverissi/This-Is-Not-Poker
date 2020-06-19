@@ -35,8 +35,8 @@ class Straight extends Combo {
 			hand.push(occur[0])
 		})
 		let cardValue = new Card(hand[0]).value()
-		let handName = `Suite : ${VALUES_NAME[cardValue]}`
-		return [handName, hand]
+		this.handName = `Suite : ${FRENCH_VALUES_NAME[cardValue]}`
+		return hand
 	}
 
 	getHandScore() {

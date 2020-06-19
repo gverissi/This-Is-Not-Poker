@@ -26,7 +26,7 @@ function main() {
 	// Create arrays of all cards (9) and url's for the images id
 	let allCards = deck.cards(0, 8)
 	// allCards = ["2h", "Ah", "5h", "5s", "Kd", "Js", "4d", "3d", "2d"]
-	// allCards = ["2h", "Jh", "5d", "Qs", "6d", "5s", "4d", "3d", "2d"]
+	// allCards = ["7h", "3d", "8h", "2d", "7d", "5h", "8s", "6h", "4h"]
 	let imagesSrc = allCards.map(card => {
 		let cardObj = new Card(card)
 		return cardObj.cardName()
@@ -57,13 +57,12 @@ function main() {
 	let combo = new Combo()
 
 	// Hands
-	let [heroHandName, heroHand] = heroCombo.getHand()
-	let [vilainHandName, vilainHand] = vilainCombo.getHand()
+	let heroHand = heroCombo.getHand()
+	let vilainHand = vilainCombo.getHand()
 	
 	// Winner
-	// let winnerHand = combo.compareCombos(heroHand, vilainHand)
 	let winnerCombo = combo.compareCombos(heroCombo, vilainCombo)
-	let [winnerHandName, winnerHand] = winnerCombo.getHand()
+	let winnerHand = winnerCombo.getHand()
 	let winnerScore = winnerCombo.getHandScore()
 	let heroScore = heroCombo.getHandScore()
 	let vilainScore = vilainCombo.getHandScore()
@@ -93,7 +92,7 @@ function main() {
 	let i = 0
 	function switchCard() {
 		if (i == 9) {
-			indexMassage(isHeroWin, isVilainWin, heroHandName, vilainHandName)
+			indexMassage(isHeroWin, isVilainWin, heroCombo.getHandName(), vilainCombo.getHandName())
 			clearInterval(intSwitchCard)
 		}
 		else {

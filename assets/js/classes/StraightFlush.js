@@ -22,8 +22,9 @@ class StraightFlush extends Combo {
 	getHand() {
 		let hand = this.player.handStraightFlush
 		let cardValue = new Card(hand[0]).value()
-		let handName = `Quinte Flush : ${VALUES_NAME[cardValue]}`
-		return [handName, hand]
+		let cardType = new Card(hand[0]).type()
+		this.handName = `Quinte Flush : ${FRENCH_VALUES_NAME[cardValue]} à ${FRENCH_TYPES_NAME[cardType]}`
+		return hand
 	}
 
 	getHandScore() {
