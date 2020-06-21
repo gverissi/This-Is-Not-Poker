@@ -1,245 +1,258 @@
+@font-face {
+	font-family: 'buffied';
+	src: url('../fonts/Buffied-GlqZ.ttf') format('truetype');
+}
+
 * {
-	outline: none;font-family: 'Piedra', cursive;
+	font-family: 'buffied';
 }
 
-
-/* index.html */
-/* ========== */
-
-main {
-	background-color: dodgerblue;
-	padding: 2vw 0;
+html {
+	font-size: 40%;
+	scroll-behavior: smooth;
 }
 
-#id_container {
-	display: flex;
-	justify-content: space-around;
+body {
+	font-size: 1.6rem;
 }
 
-.perso {
-	width: 16vw;
+i {
+	font-size: 6rem;
+	color: #a7a691;
 }
 
-.div_avatar {
-	display: flex;
-	justify-content: center;
+h2 {
+	font-size: 8rem;
+	font-weight: bold;
+	color: #b90202;
+	/* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
 }
 
-.avatar {
-	height: 8vw;
+h3 {
+	font-size: 5rem;
+	font-weight: bold;
+	color: #b90202;
+}
+
+h4 {
+	font-size: 4rem;
+	color: #a7a691;
+}
+
+p {
+	font-size: 3rem;
+	color: #C4DFE6;
+}
+
+.navbar_title {
+	font-size: 4rem;
+}
+
+.navbar_item {
+	margin-left: 2rem;
+	font-size: 4rem;
+}
+
+.game {
+	background-image: url('../images/backgrounds/bg_1.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.rules {
+	background-image: url('../images/backgrounds/bg_5.jpg');
+	background-size: cover;
+	background-position: center;
+	padding-top: 40rem;
+	padding-bottom: 5rem;
+}
+
+.player_name {
+	color: #ff9607;
+}
+
+.player_img {
+	width: 10rem;
+	border-radius: 50%;
 }
 
 .player_cards {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 1vw;
+	width: 18rem;
+}
+
+.player_message {
+	margin-top: 1rem;
+	border-radius: 1rem;
+	/* background-color: #2e4600; */
+	visibility: hidden;
+}
+
+.btn_play {
+	font-size: 1.4rem;
+	width: 8rem;
+	height: 8rem;
+	background-image: url("../images/jeton.png");
+	background-size: cover;
+	border-radius: 50%;
+	border-style: none;
+	box-shadow: 0.5rem 0.5rem 0.25rem black;
+	background-color: transparent;
+	color: black;
+	font-weight: bold;
+}
+
+.btn_play:active {
+	box-shadow: 0.25rem 0.25rem 0.25rem black;
+	transform: translateY(0.25rem);
+}
+
+.btns {
+	padding: 0.5rem;
+	width: 15rem;
+	font-size: 3rem;
+	border-radius: 1rem;
+}
+
+.message {
+	width: 40rem;
+	position: fixed;
+	z-index: 100;
+	left: 50%;
+	margin-left: -20rem;
+	background-color: #a7a691;
+	border-radius: 1rem
+}
+
+#id_message {
+	visibility: hidden;
+	background-color: #2e4600;
+}
+
+.message_title {
+	font-size: 4rem;
+	color: #C4DFE6;
+}
+
+.board {
+	width: 48rem;
 }
 
 .div_card {
-	width: 7vw;
-	height: 10.185vw; /* 323/222*width  */
+	width: 8rem;
+	/* height: 323/222*width  */
+	height: 11.64rem;
+	margin-top: 3rem;
 }
 
 .card {
 	width: 100%;
+	height: 100%;
 	border-style: solid;
-	border-width: 0.1vw;
-	border-radius: 0.6vw;
+	/* border-width: 0.1vw; */
+	border-radius: 0.6rem;
 	position: relative;
 	box-sizing: border-box;
 	background-color: cornsilk;
 }
 
-.perso_message {
-	margin-top: 1vw;
-	border-radius: 0.6vw;
-	visibility: hidden;
-}
-
-#id_text_hero {
-	background-color: #5cb85c;
-}
-
-#id_text_vilain {
-	background-color: #d9534f;
-}
-
-.btn_play {
-	font-size: 1vw;
-	width: 7vw;
-	height: 7vw;
-	background-image: url("../images/jeton.png");
-	background-repeat: no-repeat;
+.div_carousel {
+	background-image: url('../images/backgrounds/bg_2.jpg');
 	background-size: cover;
-	/* background-position: center; */
-	border-radius: 50%;
-	/* border: 2px solid grey; */
-	border-style: none;
-	box-shadow: 0.5vw 0.5vw 0.25vw grey;
-	background-color: transparent;
+	background-position: center;
 }
 
-.btn_play:active {
-  /* box-shadow: 0 5px #666; */
-  box-shadow: 0.25vw 0.25vw 0.25vw #666;
-  transform: translateY(0.25vw);
+.carousel_img {
+	height: 40rem;
 }
 
-#id_message {
-	visibility: hidden;
-	padding: 1vw;
-	border-radius: 0.6vw;
-	background-color: #5cb85c;
+.partners {
+	background-image: url('../images/backgrounds/bg_3.jpg');
+	background-size: cover;
 }
 
-.div_btns {
-	display: flex;
-	justify-content: center;
-	padding-top: 1vw;
+.partner_img {
+	width: 25rem;
 }
 
-.btns {
-	padding: 1vw;
-	margin: 0 2vw;
-	width: 10vw;
-	font-size: 1vw;
-	border-radius: 1vw;
-}
-
-.table {
-	display: flex;
-	justify-content: center;
-	/* margin-top: 1vw; */
-}
-
-.cards {
-	display: flex;
-	justify-content: space-between;
-	/* margin-top: 2vw; */
-	width: 40vw;
-}
-
-footer {
-	background-color: brown;
-	padding: 2vw 0
+.div_footer {
+	padding-top: 12rem;
+	padding-bottom: 3rem;
+	background-image: url('../images/backgrounds/bg_4.jpg');
+	background-size: 100% 100%;
 }
 
 .bank {
-	width: 7vw; height: 3vw;
+	width: 16rem;
+	height: 6rem;
 	background-size: cover;
 	background-position: center;
-	background-color: honeydew;
-	border-radius: 0.5vw;
-	margin: 1.5vw 0;
-}
-/* ============================================================================ */
-
-
-/* COMMUN */
-/* ====== */
-
-.flex_center {
-	display: flex;
-	justify-content: center;
+	background-color: #C4DFE6;
+	border-radius: 1rem;
+	margin-bottom: 2rem;
 }
 
-.flex_column {
-	display: flex;
-	flex-direction: column;
+#bank_1 {
+	background-image: url('../images/bank/stripe.png');
 }
 
-.flex_between {
-	display: flex;
-	justify-content: space-between;
+#bank_2 {
+	background-image: url('../images/bank/visa.png');
 }
 
-.flex_around {
-	display: flex;
-	justify-content: space-around;
+.div_video {
+	width: 50rem;
+	height: 28.125rem;
 }
 
-.text_center {
-	text-align: center;
+/* Bootstrap 4 breakpoints */
+
+/* Small devices: sm (landscape phones, 544px and up) */
+
+@media (min-width: 576px) {
+	html {
+		font-size: 45%;
+	}
 }
 
-p {
-	margin: 0;
-	font-size: 1.5vw;
+/* Medium devices: md (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
+@media (min-width: 768px) {
+	html {
+		font-size: 50%;
+	}
 }
 
-h1 {
-	font-size: 3vw;
-	margin: 0;
-	color: goldenrod;
+/* Large devices: lg (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+	html {
+		/* 1rem = 10px */
+		font-size: 62.5%;
+	}
 }
 
-h2 {
-	font-size: 2.5vw;
-	margin-top: 1vw;
-	margin-bottom: 1vw;
-	text-align: center;
-	color: goldenrod;
-}
+/* Extra large: xl devices (large desktops, 1200px and up) */
 
-h3 {
-	font-size: 2vw;
-	margin: 0;
-	/* margin-top: 1vw; */
-	margin-bottom: 1vw;
-	/* text-align: center; */
-	color: goldenrod;
-}
-
-h4 {
-	font-size: 1.5vw;
-	margin: 0;
-	margin-bottom: 1vw;
-	text-align: center;
-	color: goldenrod;
-}
-
-/* ============================================================================ */
-
-
-/* reward.html */
-/* =========== */
-
-#id_form {
-	display: flex;
-	flex-direction: column;
-	margin-top: 2vw;
-	visibility: hidden;
-}
-
-.div_input {
-	display: flex;
-	justify-content: center;
-	padding: 2vw;
-}
-
-.input {
-	margin: 0 2vw;
-	padding: 0.5vw;
-	font-size: 1vw;
-	border-radius: 0.5vw;
-}
-
-/* ============================================================================ */
+/* @media (min-width: 1200px) {
+	html {
+		font-size: 62.5%;
+	}
+} */
 
 .highlight {
-	box-shadow: 1vw 1vw 0.5vw grey;
-	transform: translateY(-1vw);
+	box-shadow: 1rem 1rem 0.5rem black;
+	transform: translateY(-1rem);
 }
 
 .floating {
     animation-name: floating;
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 	animation-direction: alternate;
 }
 
 @keyframes floating {
-    from { transform: translateY(-1vw); }
-    to   { transform: translateY(-1.3vw); }
+    from { transform: translateY(-2rem); }
+    to   { transform: translateY(-2.3rem); }
 }

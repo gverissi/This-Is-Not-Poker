@@ -10,16 +10,16 @@ function rewardMessage() {
 	let isVilainWin = localStorage.isVilainWin
 
 	if (isHeroWin === "true" && isVilainWin === "true") {
-		id_reward_text1.innerText = "Egalité !"
-		id_reward_text2.innerText = "Entrez votre email pour découvrir votre petit cadeau !"
+		id_reward_text1.innerText = "Egaliter !"
+		id_reward_text2.innerText = "Entrez votre email pour decouvrir votre petit cadeau !"
 	}
 	else if (isHeroWin === "true") {
-		id_reward_text1.innerText = "Vous avez gagné !"
-		id_reward_text2.innerText = "Entrez votre email pour découvrir votre cadeau !"
+		id_reward_text1.innerText = "Vous avez gagner !"
+		id_reward_text2.innerText = "Entrez votre email pour decouvrir votre cadeau !"
 	}
 	else {
 		id_reward_text1.innerText = "Vous avez perdu !"
-		id_reward_text2.innerText = "Entrez votre email pour découvrir votre cadeau de consolation !"
+		id_reward_text2.innerText = "Entrez votre email pour decouvrir votre cadeau de consolation !"
 	}
 
 	// Render the form
