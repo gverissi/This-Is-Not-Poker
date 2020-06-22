@@ -55,7 +55,7 @@
 	<!-- ==== -->
 	<div class="container-fluid py-5 game">
 		<div class="row">
-			<div class="col-5 col-sm-4 col-md-3 pr-0">
+			<div class="col-5 col-sm-4 col-xl-3 pr-0">
 				<div class="d-flex flex-column">
 					<h3 class="text-center player_name">Buffy</h3>
 					<div class="d-flex justify-content-center">
@@ -73,26 +73,38 @@
 					</div>
 					<div id="id_text_hero" class="player_message" onmouseover="highlight(this)"
 						onmouseout="unHighlight(this)">
-						<p id="id_text_hero_res" class="text-center">Gagnant :</p>
-						<p id="id_text_hero_hand" class="text-center">Full !</p>
+						<!-- <p id="id_text_hero_res" class="text-center">Gagnant :</p> -->
+						<p id="id_text_hero_hand" class="text-center player_cards_text">Full !</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-2 col-sm-4 col-md-6 pr-0 pl-0">
+			<div class="col-2 col-sm-4 col-xl-6 pr-0 pl-0">
 				<div class="d-flex justify-content-center py-5">
 					<button id="id_play_btn" class="btn_play" onclick="main()">JOUER</button>
 				</div>
-				<div id="id_message" class="py-3 message">
-					<div>
-						<p id="id_index_text1" class="text-center message_title">Vous avez gagner !</p>
-					</div>
-					<div class="d-flex justify-content-around">
-						<button type="button" class="btn btn-dark btns" onclick="playAgain()">Rejouer</button>
-						<a href="reward.html" type="button" class="btn btn-dark btns">Recompense</a>
+				<div class="d-flex justify-content-center">
+					<div id="id_message" class="py-3 message">
+						<!-- <div>
+							<p id="id_index_text1" class="text-center message_title">Vous avez gagner !</p>
+						</div> -->
+						<!-- <div class="d-flex justify-content-around">
+							<button type="button" class="btn btn-dark btns" onclick="playAgain()">Rejouer</button>
+							<a href="reward.html" type="button" class="btn btn-dark btns">Recompense</a>
+						</div> -->
+						<div class="container-fluid px-0">
+							<div class="row">
+								<div class="col-12 col-sm-6 d-flex justify-content-center">
+									<button type="button" class="btn btn-dark btns_1" onclick="playAgain()">Rejouer</button>
+								</div>
+								<div class="col-12 col-sm-6 d-flex justify-content-center">
+									<a href="reward.html" type="button" class="btn btn-dark btns_1">Cadeau</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-5 col-sm-4 col-md-3 pl-0">
+			<div class="col-5 col-sm-4 col-xl-3 pl-0">
 				<div class="d-flex flex-column">
 					<h3 class="text-center player_name">Faith</h3>
 					<div class="d-flex justify-content-center">
@@ -111,8 +123,8 @@
 				</div>
 				<div id="id_text_vilain" class="player_message" onmouseover="highlight(this)"
 					onmouseout="unHighlight(this)">
-					<p id="id_text_vilain_res" class="text-center">Perdant :</p>
-					<p id="id_text_vilain_hand" class="text-center">Paire !</p>
+					<!-- <p id="id_text_vilain_res" class="text-center">Perdant :</p> -->
+					<p id="id_text_vilain_hand" class="text-center player_cards_text">Paire !</p>
 				</div>
 			</div>
 		</div>

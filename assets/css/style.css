@@ -19,13 +19,13 @@ body {
 i {
 	font-size: 6rem;
 	color: #a7a691;
+	text-shadow: 2px 2px 4px black, 0 0 25px #b90202;
 }
 
 h2 {
 	font-size: 8rem;
 	font-weight: bold;
 	color: #b90202;
-	/* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
 }
 
 h3 {
@@ -37,6 +37,7 @@ h3 {
 h4 {
 	font-size: 4rem;
 	color: #a7a691;
+	text-shadow: 2px 2px 4px black, 0 0 25px #b90202;
 }
 
 p {
@@ -82,9 +83,31 @@ p {
 
 .player_message {
 	margin-top: 1rem;
-	border-radius: 1rem;
-	/* background-color: #2e4600; */
+	border-radius: 0.5rem;
 	visibility: hidden;
+}
+
+/* #id_text_hero_res {
+	margin-bottom: 0;
+} */
+
+/* #id_text_hero_hand {
+	margin-bottom: 0;
+	font-size: 2rem;
+} */
+
+/* #id_text_vilain_res {
+	margin-bottom: 0;
+} */
+
+/* #id_text_vilain_hand {
+	margin-bottom: 0;
+	font-size: 2rem;
+} */
+
+.player_cards_text {
+	margin-bottom: 0;
+	font-size: 2rem;
 }
 
 .btn_play {
@@ -97,13 +120,25 @@ p {
 	border-style: none;
 	box-shadow: 0.5rem 0.5rem 0.25rem black;
 	background-color: transparent;
-	color: black;
+	color: #b90202;
 	font-weight: bold;
+}
+
+.btn_play:focus {
+	outline: none;
 }
 
 .btn_play:active {
 	box-shadow: 0.25rem 0.25rem 0.25rem black;
 	transform: translateY(0.25rem);
+}
+
+.btns_1 {
+	padding: 0.5rem;
+	width: 8rem;
+	font-size: 2.5rem;
+	border-radius: 1rem;
+	margin: 0.5rem 0;
 }
 
 .btns {
@@ -114,18 +149,18 @@ p {
 }
 
 .message {
-	width: 40rem;
-	position: fixed;
+	/* width: 40rem; */
+	/* position: fixed;
 	z-index: 100;
 	left: 50%;
-	margin-left: -20rem;
+	margin-left: -20rem; */
 	background-color: #a7a691;
-	border-radius: 1rem
+	border-radius: 1rem;
+	/* padding: 3rem 3rem; */
 }
 
 #id_message {
 	visibility: hidden;
-	background-color: #2e4600;
 }
 
 .message_title {
@@ -148,7 +183,6 @@ p {
 	width: 100%;
 	height: 100%;
 	border-style: solid;
-	/* border-width: 0.1vw; */
 	border-radius: 0.6rem;
 	position: relative;
 	box-sizing: border-box;
@@ -186,7 +220,7 @@ p {
 	height: 6rem;
 	background-size: cover;
 	background-position: center;
-	background-color: #C4DFE6;
+	background-color: #a7a691;
 	border-radius: 1rem;
 	margin-bottom: 2rem;
 }
@@ -197,6 +231,11 @@ p {
 
 #bank_2 {
 	background-image: url('../images/bank/visa.png');
+}
+
+.input_email {
+	border-radius: 1rem;
+	font-size: 3rem;
 }
 
 .div_video {
@@ -212,6 +251,32 @@ p {
 	html {
 		font-size: 45%;
 	}
+	
+	.player_cards_text {
+		font-size: 2.3rem;
+	}
+
+	.btns_1 {
+		width: 15rem;
+		font-size: 3rem;
+	}
+
+	.message {
+		padding: 0 2rem;
+	}
+
+	.div_card {
+		width: 10rem;
+		height: 14.55rem;
+	}
+
+	.player_cards {
+		width: 22rem;
+	}
+
+	.board {
+		width: 58rem;
+	}
 }
 
 /* Medium devices: md (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -219,6 +284,23 @@ p {
 @media (min-width: 768px) {
 	html {
 		font-size: 50%;
+	}
+	
+	.player_cards_text {
+		font-size: 2.5rem;
+	}
+
+	.div_card {
+		width: 12rem;
+		height: 17.46rem;
+	}
+
+	.player_cards {
+		width: 26rem;
+	}
+
+	.board {
+		width: 68rem;
 	}
 }
 
@@ -228,6 +310,10 @@ p {
 	html {
 		/* 1rem = 10px */
 		font-size: 62.5%;
+	}
+	
+	.player_cards_text {
+		font-size: 2.8rem;
 	}
 }
 

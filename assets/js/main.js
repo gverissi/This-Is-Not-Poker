@@ -27,6 +27,7 @@ function main() {
 	let allCards = deck.cards(0, 8)
 	// allCards = ["2h", "Ah", "5h", "5s", "Kd", "Js", "4d", "3d", "2d"]
 	// allCards = ["7h", "3d", "8h", "2d", "7d", "5h", "8s", "6h", "4h"]
+	// allCards = ["7h", "3d", "8h", "2d", "Qc", "Jc", "10c", "9c", "8c"]
 	let imagesSrc = allCards.map(card => {
 		let cardObj = new Card(card)
 		return cardObj.cardName()
