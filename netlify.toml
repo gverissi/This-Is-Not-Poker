@@ -7,4 +7,4 @@
     # Multi-value headers are expressed with multi-line strings.
 	cache-control = '''
 	max-age=2592000,
-	public
+	public'''
