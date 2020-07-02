@@ -6,6 +6,16 @@ class StraightFlush extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * To have a StraightFlush the player must have first a flush then a straight.
+	 * In that very specific case we must get the player's hand to check if he has a StraightFlush,
+	 * so if he does then we store the hand in the well called variable handStraightFlush.
+	 * 
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof StraightFlush
+	 */
 	static isValid(player) {
 		if (Flush.isValid(player)) {
 			let combo = new Combo()

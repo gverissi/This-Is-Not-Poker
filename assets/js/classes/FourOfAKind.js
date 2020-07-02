@@ -6,6 +6,14 @@ class FourOfAKind extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * To have a FourOfAKind the player must have 4 cards of the same value.
+	 *
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof FourOfAKind
+	 */
 	static isValid(player) {
 		return player.nbValueOcc.includes(4)
 	}

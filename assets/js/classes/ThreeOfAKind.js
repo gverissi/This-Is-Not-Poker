@@ -6,6 +6,14 @@ class ThreeOfAKind extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * To have a ThreeOfAKind the player must have three cards with the same value.
+	 *
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof ThreeOfAKind
+	 */
 	static isValid(player) {
 		return player.nbValueOcc.includes(3)
 	}

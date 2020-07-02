@@ -1,11 +1,27 @@
 
 class Straight extends Combo {
 
+	/**
+	 * Creates an instance of Straight.
+	 * 
+	 * @property {Player} player
+	 * @param {Player} player
+	 * @memberof Straight
+	 */
 	constructor(player) {
 		super()
 		this.player = player
 	}
 
+	/**
+	 * To have a straight the player must have five cards of sequential rank.
+	 * To check that we use an arithmetic progression (https://en.wikipedia.org/wiki/Arithmetic_progression).
+	 * 
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof Straight
+	 */
 	static isValid(player) {
 		let orderedCards = new Combo().orderCards(player.cards)
 		let scores = orderedCards.map(card => {

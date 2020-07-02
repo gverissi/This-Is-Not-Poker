@@ -6,6 +6,14 @@ class Full extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * To have a Full the player must have a ThreeOfAKind and a pair or 2 ThreeOfAKind.
+	 *
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof Full
+	 */
 	static isValid(player) {
 		return (player.nbValueOcc.includes(3) && player.nbValueOcc.includes(2)) || player.allIndexOf(player.nbValueOcc, 3).length == 2
 	}

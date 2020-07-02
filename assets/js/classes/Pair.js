@@ -6,6 +6,14 @@ class Pair extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * To have a pair the player must have two cards with the same value.
+	 *
+	 * @static
+	 * @param {Player} player
+	 * @returns {boolean}
+	 * @memberof Pair
+	 */
 	static isValid(player) {
 		return player.nbValueOcc.includes(2)
 	}

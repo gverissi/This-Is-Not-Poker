@@ -6,6 +6,12 @@ class High extends Combo {
 		this.player = player
 	}
 
+	/**
+	 * If the player has no combo, the hand is the five firsts sorted cards.
+	 *
+	 * @returns {string[]}
+	 * @memberof High
+	 */
 	getHand() {
 		let hand = this.orderCards(this.player.cards).slice(0, 5)
 		let cardValue = new Card(hand[0]).value()
